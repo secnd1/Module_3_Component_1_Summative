@@ -4,7 +4,8 @@
 // ===========================================
 
 const runTasksButton = document.getElementById("runTasksButton");
-const outputElement = "";
+const outputElement = document.getElementById("output");
+
 
 // ===========================================
 // DATA
@@ -18,36 +19,33 @@ export const marks = [45, 60, 85, 30, 95];
 // Do NOT change the function names.
 // ===========================================
 
-// Task 1 
+ 
 export function addMark() {
-    //add 70 to the end of the marks array
-    // Return the updated marks array
+    marks.push(70);
+    return marks;
 }
 
-// Task 2
-export function getMarksOver60() {
-    // Return marks greater than 60
+function findFirstMarkOver60() {
+    return marks.find(mark => mark > 60);
 }
 
-// Task 3
-export function increaseMarksBy5() {
-    // Return a new array where each mark is increased by 5
+export  function increaseMarksBy5() {
+    return marks.map(mark => mark + 5);
 }
 
-// Task 4
 export function getTotalMarks() {
-    // Return the total of all marks
+    return marks.reduce((total, mark) => total + mark, 0)
 }
 
-// Task 5
 export function findFirstMarkOver80() {
-    // Return the first mark greater than 80
+    return marks.find(mark => mark > 80)
 }
 
-// Task 6
 export function sortMarksLowestToHighest() {
-    // Return marks sorted from lowest to highest
+    return marks.sort((a, b) => a - b);
 }
+
+
 
 // ===========================================
 // PROVIDED FUNCTIONS
@@ -82,9 +80,35 @@ export function runTasks() {
 
 }
 
+
+function addMark() {
+    marks.push(70);
+    return marks;
+}
+
+function getMarksOver60() {
+    return marks.filter(mark => mark > 60);
+}
+
+function increaseMarksBy5() {
+    return marks.map(mark => mark + 5);
+}
+
+function getTotalMarks() {
+    return marks.reduce((total, mark) => total + mark, 0);
+}
+
+function findFirstMarkOver80() {
+    return marks.find(mark => mark > 80);
+}
+
+function sortMarksLowestToHighest() {
+    return marks.sort((a, b) => a - b);
+}
+
 // ===========================================
 // ADD EVENT LISTENER
 // SECTION A 
 // ===========================================
 
-runTasksButton
+runTasksButton.Module_3_Component_1_Summative("click", runTasks);
